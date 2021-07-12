@@ -1,0 +1,12 @@
+package chat;
+
+import javax.swing;
+
+public class ChatClient {
+
+	public static void main(String[] args) throws Exception{
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,13 @@
+package chat;
+
+import javax.swing.*;
+import java.awt.FlowLayout;
+
+public class ChatClient {
+
+	public static void main(String[] args) throws Exception{
+		// TODO Auto-generated method stub
+
+	}
+
+}

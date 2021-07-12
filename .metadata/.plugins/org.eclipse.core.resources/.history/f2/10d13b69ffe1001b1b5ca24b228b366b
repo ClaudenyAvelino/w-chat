@@ -1,0 +1,32 @@
+package testes;
+
+import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Date;
+
+public class Servidor {
+
+	public static void main(String[] args) {
+try {
+			
+			ServerSocket servidor = new ServerSocket(12345);
+			System.out.println("Servidor ativo, aguardando conexão ....");
+			
+			while (true) {
+				Socket cliente = new servidor.accept();
+				System.out.println("IP do cliente: "+ cliente.getInetAddress().getHostAddress());
+				
+				ObjectOutputStream saida = new ObjectOutputStream(cliente.getOutputStream());
+				saida.flush();
+				saida.writeObject(new Date());
+				
+			}
+		} catch (Exception e) {
+			System.out.println("Erro no servidor: "+ e.getMessage());
+			e.printStackTrace();
+		}
+
+	}
+
+}

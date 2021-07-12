@@ -1,0 +1,36 @@
+package testes;
+
+import java.io.*;
+import java.net.*;
+import java.util.Date;
+
+import javax.swing.JOptionPane;
+
+import cliente.Cliente;
+
+public class Cliente01 {
+
+	public static void main(String[] args) {
+		
+		try {
+			Socket cliente = new Socket("localhost", 12345);
+			Cliente user = new Cliente();
+			
+			user.setNome("Claudeny");
+			ObjectInputStream entrada = new ObjectInputStream(cliente.getInputStream());
+			Date dataDoServidor = (Date) entrada.readObject();
+			JOptionPane.showMessageDialog(null," data recebida do Servidor: "+user+
+			dataDoServidor.toString());
+			
+			entrada.close();
+			System.out.println("Conexão encerrada: ");
+			
+		} catch (Exception e) {
+			System.out.println("Erro no servidor: "+ e.getMessage());
+			e.printStackTrace();
+
+		}
+
+	}
+
+}
